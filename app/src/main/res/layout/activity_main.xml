@@ -15,10 +15,10 @@
         android:textSize="30sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.494"
+        app:layout_constraintHorizontal_bias="0.505"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.117" />
+        app:layout_constraintVertical_bias="0.102" />
 
     <Button
         android:id="@+id/main_btn_easy"
@@ -30,6 +30,7 @@
         android:layout_marginBottom="8dp"
         android:text="@string/txt_btn_easy"
         android:textSize="30sp"
+        app:backgroundTint="#FFC107"
         app:layout_constraintBottom_toTopOf="@+id/main_btn_traditionel"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
@@ -47,6 +48,7 @@
         android:layout_marginBottom="18dp"
         android:text="@string/txt_btn_season"
         android:textSize="30sp"
+        app:backgroundTint="#FF5722"
         app:layout_constraintBottom_toTopOf="@+id/main_btn_gluten"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
@@ -63,6 +65,7 @@
         android:layout_marginBottom="15dp"
         android:text="@string/txt_btn_traditionel"
         android:textSize="30sp"
+        app:backgroundTint="#FF9800"
         app:layout_constraintBottom_toTopOf="@+id/main_btn_season"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
@@ -79,6 +82,7 @@
         android:layout_marginBottom="15dp"
         android:text="@string/txt_btn_gluten"
         android:textSize="30sp"
+        app:backgroundTint="#8BC34A"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
