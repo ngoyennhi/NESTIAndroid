@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/menu_search"
+        android:title="@string/txt_menu_search" />
+    <item
+        android:id="@+id/menu_liste"
+        android:title="@string/txt_menu_liste" />
+    <item
+        android:id="@+id/menu_present"
+        android:title="@string/txt_menu_present" >
+        <menu >
+            <item
+                android:id="@+id/menu_contact"
+                android:title="@string/txt_menu_contact" />
+            <item
+                android:id="@+id/menu_team"
+                android:title="@string/txt_menu_team" />
+            <item
+                android:id="@+id/menu_projet"
+                android:title="@string/txt_menu_projet" />
+        </menu>
+    </item>
+</menu>
