@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Nesti_mes_recettes</string>
+    <string name="txt_main_title">Choissiez une catégorie</string>
+    <string name="txt_btn_easy">Facile à faire</string>
+    <string name="txt_btn_traditionel">Traditionelles</string>
+    <string name="txt_btn_season">C\'est de saison</string>
+    <string name="txt_btn_gluten">Sans gluten</string>
+</resources>
