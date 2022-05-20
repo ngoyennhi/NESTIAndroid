@@ -28,7 +28,7 @@
         app:layout_constraintTop_toBottomOf="@+id/lineRecipe_txtViewTitle" />
 
     <ImageView
-        android:id="@+id/imageView2"
+        android:id="@+id/lineRecipe_imgViewRecipe"
         android:layout_width="184dp"
         android:layout_height="113dp"
         android:contentDescription="@string/line_recipe_imgView_recipe"
