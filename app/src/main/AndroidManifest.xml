@@ -20,7 +20,7 @@
             android:name=".SaisonActivity"
             android:exported="false" />
         <activity
-            android:name=".TraditionellesActivity"
+            android:name=".TraditionActivity"
             android:exported="false" />
         <activity
             android:name=".EasyActivity"

@@ -141,7 +141,7 @@ public class MainActivity extends AppCompatActivity {
                     public void onClick(DialogInterface dialog, int which) {
                         Toast.makeText(getApplicationContext(), btnTrade.getText(), Toast.LENGTH_SHORT).show();
                         //Lance l'activité qui affchie la fenêtre Traditionnelles
-                        Intent intent = new Intent(MainActivity.this,TraditionellesActivity.class);
+                        Intent intent = new Intent(MainActivity.this, TraditionActivity.class);
                         startActivity(intent);
                     }
                 });
