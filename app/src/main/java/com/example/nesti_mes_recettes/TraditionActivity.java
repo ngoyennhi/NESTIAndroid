@@ -23,6 +23,7 @@ public class TraditionActivity<adapter> extends AppCompatActivity {
         r1.setCat("Tradition");
         r1.setTitle("Macarons");
         r1.setAuthor("Cédric Grolet");
+        r1.setImgId(this.getResourceImage("r_macarons"));
 
         traditional_recipes.add(r1);
 
@@ -30,7 +31,7 @@ public class TraditionActivity<adapter> extends AppCompatActivity {
         r2.setCat("Tradition");
         r2.setTitle("Eclair au chocolat");
         r2.setAuthor("Philipe Conticini");
-
+        r2.setImgId(this.getResourceImage("r_eclair_chocolat"));
         traditional_recipes.add(r2);
 
     /*
