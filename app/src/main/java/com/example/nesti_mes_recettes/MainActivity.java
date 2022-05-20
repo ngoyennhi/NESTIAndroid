@@ -83,6 +83,8 @@ public class MainActivity extends AppCompatActivity {
  * un Listener permet de récupérer l'évenement d'interaction avec le bouton
  * + un clic à l'apparition d'un message de type Toast
   */
+
+   //Au démarrage de l’activité, on associe ce layout grâce à la méthode setContentView :
     @Override
     protected void onCreate(Bundle saveInstanceState){
     super.onCreate(saveInstanceState);

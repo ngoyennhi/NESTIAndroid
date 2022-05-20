@@ -15,4 +15,9 @@
     <string name="txt_title_traditionelle">Liste des recettes traditionelles</string>
     <string name="txt_title_saison">Liste des recettes saisones</string>
     <string name="txt_title_gluten">Liste des recettes sans gluten</string>
+    <string name="txt_title_recipe">Titre</string>
+    <string name="txt_title_author">Author</string>
+    <string name="line_recipe_txtView_title">Titre</string>
+    <string name="line_recipe_txtView_author">auteur</string>
+    <string name="line_recipe_imgView_recipe">Image de recette</string>
 </resources>

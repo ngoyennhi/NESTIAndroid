@@ -46,5 +46,15 @@ public class TraditionActivity<adapter> extends AppCompatActivity {
         list_View.setAdapter(adapter);
 
     }
+
+    /*
+   //Retourne l'identifiant d'une image
+   @param nameImage
+   @return
+    */
+    private int getResourceImage(String nameImage){
+        String path = getPackageName()+ ":drawable/" + nameImage;
+        return getResources().getIdentifier(path,null,null);
+    }
 }
 
