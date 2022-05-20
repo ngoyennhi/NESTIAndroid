@@ -11,4 +11,8 @@
     <string name="txt_menu_contact">Contact</string>
     <string name="txt_menu_team">Equipe</string>
     <string name="txt_menu_projet">Projet</string>
+    <string name="txt_title_easy">Liste des recettes faciles</string>
+    <string name="txt_title_traditionelle">Liste des recettes traditionelles</string>
+    <string name="txt_title_saison">Liste des recettes saisones</string>
+    <string name="txt_title_gluten">Liste des recettes sans gluten</string>
 </resources>
