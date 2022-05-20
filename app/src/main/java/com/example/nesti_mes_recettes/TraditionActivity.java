@@ -3,11 +3,16 @@ package com.example.nesti_mes_recettes;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 import com.example.nesti_mes_recettes.entity.Recipe;
 
+import org.xmlpull.v1.XmlPullParser;
+import org.xmlpull.v1.XmlPullParserException;
+
+import java.io.IOException;
 import java.util.ArrayList;
 
 public class TraditionActivity<adapter> extends AppCompatActivity {
@@ -56,6 +61,39 @@ public class TraditionActivity<adapter> extends AppCompatActivity {
     private int getResourceImage(String nameImage){
         String path = getPackageName()+ ":drawable/" + nameImage;
         return getResources().getIdentifier(path,null,null);
+    }
+
+    /*
+    Lecture des données xml
+     */
+    private ArrayList<Recipe> readXmlRecipe(int plistId){
+        XmlPullParser xml_pull_parser = this.getResources().getXml(plistId);
+        ArrayList<Recipe> list_recipes = new ArrayList<>();
+    try {
+        while((xml_pull_parser.getEventType() != XmlPullParser.END_DOCUMENT)){
+            //si la balise est ouvrante
+            Log.i("LogNesti","Test");
+            if(xml_pull_parser.getEventType() == XmlPullParser.START_TAG){
+                if(xml_pull_parser.getName().equals("recipe")){
+                    Recipe r = new Recipe();
+                    r.setCat(xml_pull_parser.getAttributeValue(null,"cat"));
+                    r.setTitle(xml_pull_parser.getAttributeValue(null,"title"));
+                    r.setAuthor(xml_pull_parser.getAttributeValue(null,"author"));
+                    r.setImgId(i);
+                    Log.i("LogNesti","Recette : " + r);
+                    // alimentation de la liste
+                    list_recipes.add(r);
+                }
+            }
+            //Enregistrement suivant
+            xml_pull_parser.next();
+        }
+    }
+    catch (XmlPullParserException | IOException e){
+    Log.e("LogNesti","Erreurs lecture xml: "+ e.getMessage());
+
+    }
+    return list_recipes;
     }
 }
 
