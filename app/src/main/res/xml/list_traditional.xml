@@ -1,15 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ressources>
     <recipe cat="tradition"
-        titre="Macaron"
+        title="Macaron"
         author="Cédric Grolet"
-        img="r_macarons" />
+        img="r_macarons"
+        imgStar="star_1"
+        />
     <recipe cat="tradition"
-        titre="Eclair au chocolat"
+        title="Eclair au chocolat"
         author="Philippe Conticini"
-        img="r_eclair_chocolat" />
+        img="r_eclair_chocolat"
+        imgStar="star_3"
+        />
     <recipe cat="tradition"
-        titre="Brioche"
+        title="Brioche"
         author="Pierre Hermé"
-        img="r_brioche" />
+        img="r_brioche"
+        imgStar="star_4"
+        />
 </ressources>

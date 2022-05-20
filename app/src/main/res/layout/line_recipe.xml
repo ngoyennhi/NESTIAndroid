@@ -40,4 +40,18 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.513" />
 
+    <ImageView
+        android:id="@+id/lineRecipe_imgViewRecipeStar"
+        android:layout_width="154dp"
+        android:layout_height="26dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="6dp"
+        android:layout_marginEnd="33dp"
+        android:layout_marginBottom="15dp"
+        android:contentDescription="@string/line_recipe_imgView_recipe_star"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/lineRecipe_imgViewRecipe"
+        app:layout_constraintTop_toBottomOf="@+id/lineRecipe_txtViewAuthor" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

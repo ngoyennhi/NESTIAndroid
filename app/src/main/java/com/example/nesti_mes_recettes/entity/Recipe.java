@@ -5,6 +5,7 @@ public class Recipe {
     String cat;
     String author;
     int imgId;
+    int imgIdStar;
     // Getter-Setter accesseurs-mutateurs
     public String getTitle() {
         return title;
@@ -38,6 +39,14 @@ public class Recipe {
         this.imgId = imgId;
     }
 
+    public int getImgIdStar() {
+        return imgIdStar;
+    }
+
+    public void setImgIdStar(int imgIdStar) {
+        this.imgIdStar = imgIdStar;
+    }
+
     @Override
     public String toString(){
         return "Recipe{"+
@@ -46,4 +55,6 @@ public class Recipe {
                 ", imgId='" + imgId +
                 ", author='" + author +"\'" + "}";
     }
+
+
 }

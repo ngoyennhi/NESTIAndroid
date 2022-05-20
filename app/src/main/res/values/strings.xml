@@ -20,4 +20,5 @@
     <string name="line_recipe_txtView_title">Titre</string>
     <string name="line_recipe_txtView_author">auteur</string>
     <string name="line_recipe_imgView_recipe">Image de recette</string>
+    <string name="line_recipe_imgView_recipe_star">Image de recette star</string>
 </resources>

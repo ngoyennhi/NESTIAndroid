@@ -46,6 +46,10 @@ public class RecipeAdapter extends ArrayAdapter<Recipe> {
         author.setText(one_recipe.getAuthor());
 
         ImageView imageView =result.findViewById(R.id.lineRecipe_imgViewRecipe);
+        imageView.setImageResource(one_recipe.getImgId());
+
+        ImageView imageViewStar =result.findViewById(R.id.lineRecipe_imgViewRecipeStar);
+        imageViewStar.setImageResource(one_recipe.getImgIdStar());
 
         return result;
     }

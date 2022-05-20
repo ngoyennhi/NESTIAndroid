@@ -7,6 +7,7 @@ import android.util.Log;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
+import com.example.nesti_mes_recettes.adapter.RecipeAdapter;
 import com.example.nesti_mes_recettes.entity.Recipe;
 
 import org.xmlpull.v1.XmlPullParser;
@@ -21,42 +22,44 @@ public class TraditionActivity<adapter> extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tradition);
-        //tableau des recettes traditionnelles
-        ArrayList <Recipe> traditional_recipes = new ArrayList<Recipe>();
+        ////tableau des recettes traditionnelles
+        //ArrayList <Recipe> traditional_recipes = new ArrayList<Recipe>();
 
-        Recipe r1 = new Recipe();
-        r1.setCat("Tradition");
-        r1.setTitle("Macarons");
-        r1.setAuthor("Cédric Grolet");
-        r1.setImgId(this.getResourceImage("r_macarons"));
+        //Recipe r1 = new Recipe();
+        //r1.setCat("Tradition");
+        //r1.setTitle("Macarons");
+        //r1.setAuthor("Cédric Grolet");
+        // r1.setImgId(this.getResourceImage("r_macarons"));
 
-        traditional_recipes.add(r1);
+        // traditional_recipes.add(r1);
 
-        Recipe r2 = new Recipe();
-        r2.setCat("Tradition");
-        r2.setTitle("Eclair au chocolat");
-        r2.setAuthor("Philipe Conticini");
-        r2.setImgId(this.getResourceImage("r_eclair_chocolat"));
-        traditional_recipes.add(r2);
+        // Recipe r2 = new Recipe();
+        // r2.setCat("Tradition");
+        // r2.setTitle("Eclair au chocolat");
+        // r2.setAuthor("Philipe Conticini");
+        // r2.setImgId(this.getResourceImage("r_eclair_chocolat"));
+        //  traditional_recipes.add(r2);
 
-    /*
-// List View
- */
+        //creat tableau depuis fichier xml
+        ArrayList<Recipe> traditional_recipes = readXmlRecipe(R.xml.list_traditional);
+        /*
+          // List View
+         */
         // on attrape le composant pour récuper l'élement Listview du layout par son identifiant
         ListView list_View = findViewById(R.id.tradition_listview);
         // on crée un adaptateur pour faire le lien entre les données et la listView
         // une simple liste d'éléments et alimentée par le tableau de recettes this.eastRecipes
         // deuxieme param détermine l'affichage de chaque élément de la liste
-        ArrayAdapter<Recipe> adapter = new ArrayAdapter<Recipe>(this,android.R.layout.simple_list_item_1,traditional_recipes);
+        //utilise notre propre addapter
+        RecipeAdapter adapter = new RecipeAdapter(this,R.layout.line_recipe,traditional_recipes);
         // on relie les deux
         list_View.setAdapter(adapter);
 
     }
-
     /*
-   //Retourne l'identifiant d'une image
-   @param nameImage
-   @return
+     //Retourne l'identifiant d'une image
+     @param nameImage
+    @return
     */
     private int getResourceImage(String nameImage){
         String path = getPackageName()+ ":drawable/" + nameImage;
@@ -79,7 +82,10 @@ public class TraditionActivity<adapter> extends AppCompatActivity {
                     r.setCat(xml_pull_parser.getAttributeValue(null,"cat"));
                     r.setTitle(xml_pull_parser.getAttributeValue(null,"title"));
                     r.setAuthor(xml_pull_parser.getAttributeValue(null,"author"));
+                    int i = this.getResourceImage(xml_pull_parser.getAttributeValue(null,"img"));
                     r.setImgId(i);
+                    int iStar = this.getResourceImage(xml_pull_parser.getAttributeValue(null,"imgStar"));
+                    r.setImgIdStar(iStar);
                     Log.i("LogNesti","Recette : " + r);
                     // alimentation de la liste
                     list_recipes.add(r);
