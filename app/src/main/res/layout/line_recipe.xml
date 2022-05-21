@@ -13,7 +13,7 @@
         android:layout_marginStart="224dp"
         android:layout_marginBottom="68dp"
         android:text="@string/line_recipe_txtView_title"
-        android:textSize="24sp"
+        android:textSize="22sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
