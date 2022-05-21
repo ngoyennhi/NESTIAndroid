@@ -23,6 +23,7 @@ public class EasyActivity extends AppCompatActivity {
         // on crée un adaptateur pour faire le lien entre les données et la listView
         // une simple liste d'éléments et alimentée par le tableau de recettes this.eastRecipes
         // deuxieme param détermine l'affichage de chaque élément de la liste
+        // par default on utilise ArrayAdapter si l'on n'a pas encore notre appdater :) 
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,android.R.layout.simple_list_item_single_choice,this.easyRecipes);
         // on relie les deux
         listView.setAdapter(adapter);

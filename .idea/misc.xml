@@ -5,8 +5,10 @@
       <map>
         <entry key="../../../../../../layout/custom_preview.xml" value="0.13555331315169863" />
         <entry key="app/src/main/res/layout/activity_easy.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/activity_gluten.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.2851851851851852" />
-        <entry key="app/src/main/res/layout/activity_saison.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/activity_saison.xml" value="0.2978912353515625" />
+        <entry key="app/src/main/res/layout/activity_tradition.xml" value="0.3529617309570313" />
         <entry key="app/src/main/res/layout/activity_traditionelles.xml" value="0.1" />
         <entry key="app/src/main/res/layout/line_recipe.xml" value="0.32444458007812504" />
         <entry key="app/src/main/res/menu/menu_general.xml" value="0.17037037037037037" />

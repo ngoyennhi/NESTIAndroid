@@ -55,6 +55,4 @@ public class Recipe {
                 ", imgId='" + imgId +
                 ", author='" + author +"\'" + "}";
     }
-
-
 }
