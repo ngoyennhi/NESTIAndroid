@@ -2,7 +2,6 @@ package com.example.nesti_mes_recettes;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.res.AssetManager;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.ListView;
@@ -19,9 +18,6 @@ import com.example.nesti_mes_recettes.entity.Recipe;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
 import java.util.ArrayList;
 
 public class GlutenActivity extends AppCompatActivity {
@@ -34,11 +30,6 @@ public class GlutenActivity extends AppCompatActivity {
         //API recipes sans gluten
         requestApi();
 
-        // sansGluten_listView = nom de "layout" liste
-        ListView list_View = findViewById((R.id.sansGluten_listView));
-        // utilise notre propre "addapter" pour affichier les recipes
-        RecipeAdapter adapter = new RecipeAdapter(this, R.layout.line_recipe,sansGluten_recipes);
-        list_View.setAdapter(adapter);
     }
 
     private void requestApi(){
@@ -61,8 +52,13 @@ public class GlutenActivity extends AppCompatActivity {
                          @Override
                          public void onResponse(JSONArray response){
                             //Traitement de la réponse
-                             readJSONRecipe(response);
+                            // ArrayList<Recipe> sansGluten_recipes = readJSONRecipe(response);
                             // Log.i("LogNesti",response.toString());
+                             // season_listView = nom de "layout" liste
+                             //ListView list_View = findViewById((R.id.sansGluten_listView));
+                             // utilise notre propre "addapter" pour affichier les recipes
+                            // RecipeAdapter adapter = new RecipeAdapter(this, R.layout.line_recipe,sansGluten_recipes);
+                            // list_View.setAdapter(adapter);
                          }
                     },
                 //Interface de rappel pour fournir des réponses d'erreur.
@@ -108,6 +104,7 @@ public class GlutenActivity extends AppCompatActivity {
                 // A completer
                 recipes.add(r);
             }
+
         }
         catch (Exception e){
             Log.e("LogNesti","Erreur de lecture du Json");
