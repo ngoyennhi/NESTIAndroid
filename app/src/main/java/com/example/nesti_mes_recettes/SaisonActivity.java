@@ -25,7 +25,7 @@ public class SaisonActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_saison);
 
-        // tableau des recettes traditionnelles
+        // tableau des recettes seasons
         ArrayList<Recipe> seasonal_recipes = readJSONRecipe("season.json");
         Log.i("LogNesti","Tableau recu " + seasonal_recipes.size());
         // season_listView = nom de "layout" liste

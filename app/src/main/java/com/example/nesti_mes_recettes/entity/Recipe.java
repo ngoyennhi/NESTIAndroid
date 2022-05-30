@@ -60,7 +60,9 @@ public class Recipe {
         return "Recipe{"+
                 "cat='"+ cat +"\'" +
                 ", title='" + title +"\'" +
+                ", diff='" + difficulty +"\'" +
                 ", imgId='" + imgId +
+                ", imgIdStar='" + imgIdStar +
                 ", author='" + author +"\'" + "}";
     }
 }
