@@ -2,6 +2,7 @@ package com.example.nesti_mes_recettes;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.res.AssetManager;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.ListView;
@@ -18,6 +19,9 @@ import com.example.nesti_mes_recettes.entity.Recipe;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
 
 public class GlutenActivity extends AppCompatActivity {
@@ -27,7 +31,6 @@ public class GlutenActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_gluten);
 
-        //API recipes sans gluten
         requestApi();
 
     }
@@ -52,13 +55,7 @@ public class GlutenActivity extends AppCompatActivity {
                          @Override
                          public void onResponse(JSONArray response){
                             //Traitement de la réponse
-                            // ArrayList<Recipe> sansGluten_recipes = readJSONRecipe(response);
-                            // Log.i("LogNesti",response.toString());
-                             // season_listView = nom de "layout" liste
-                             //ListView list_View = findViewById((R.id.sansGluten_listView));
-                             // utilise notre propre "addapter" pour affichier les recipes
-                            // RecipeAdapter adapter = new RecipeAdapter(this, R.layout.line_recipe,sansGluten_recipes);
-                            // list_View.setAdapter(adapter);
+                            Log.i("LogNesti",response.toString());
                          }
                     },
                 //Interface de rappel pour fournir des réponses d'erreur.
@@ -73,45 +70,17 @@ public class GlutenActivity extends AppCompatActivity {
                 }
         );
         request_queue.add(array_request);
-        Log.i("LogNesti",request_queue.toString());
     }
 
     /*
     Ajouter une méthode qui, à partir d’une chaîne de caractère JSON,
     donne un tableau d’objet de type Recipe.
      */
-    private ArrayList<Recipe> readJSONRecipe(JSONArray response) {
-        ArrayList<Recipe> recipes = new ArrayList<>();
-        try{
-            //classe JSON Array pour passer les données du fichier JSON
-            //note: il est impératif de stocker le fichier season.json dans ASSETS
-            JSONArray tableau_JSON = response;
-            Log.i("LogNesti","Nombre denregistrements : " + tableau_JSON.length());
-            //Parcours du tableau
-            for(int i = 0;i<tableau_JSON.length(); i++){
-                JSONObject object_JSON = tableau_JSON.getJSONObject(i);
-                //Une fois les données JSON du fichier seazon.json récupérées dans le tableau JSONArray,
-                // il suffira de parcourir ce tableau et d’extraire les informations concernant chacune des recettes de la catégorie seazon,
-                // grâce à la classe JSONObject.
-                Recipe r = new Recipe();
-                // chaque lot d'info sera stocké dans un objet Recipe
-                r.setCat(object_JSON.getString("cat"));
-                r.setTitle(object_JSON.getString("title"));
-                r.setAuthor(object_JSON.getString("author"));
-                int index = this.getResourceImage(object_JSON.getString("img"));
-                r.setImgId(index);
-                r.setDifficulty(object_JSON.getInt("diff"));
-                // A completer
-                recipes.add(r);
-            }
+    /*
+    Ajouter une méthode qui, à partir d’une chaîne de caractère JSON,
+    donne un tableau d’objet de type Recipe.
+     */
 
-        }
-        catch (Exception e){
-            Log.e("LogNesti","Erreur de lecture du Json");
-            e.printStackTrace();
-        }
-        return recipes;
-    }
     /*
      //Retourne l'identifiant d'une image
      @param nameImage
