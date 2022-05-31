@@ -43,6 +43,7 @@ public class GlutenActivity extends AppCompatActivity {
         // localhost
         // //Important : Remplacer “XX.XXX.XX.XX” par ip mac
        //String url = "http://XX.XXX.XX.XX:8888/nestiADMIN_CodeIgniter4/project_root_CodeIgniter4/public/index.php/api/category/sansgluten";
+        
 
        // // server
        // //Remplacer les pointillés par le nom du projet Codeigniter.
@@ -108,10 +109,10 @@ public class GlutenActivity extends AppCompatActivity {
                 int index = this.getResourceImage(object_JSON.getString("nom_img"));
                 r.setImgId(index);
 
-                r.setDifficulty(object_JSON.getInt("difficulte"));
-                String imageDiff = difficultImageConverter(r.getDifficulty());
-                int iddiff = getResources().getIdentifier(imageDiff,"drawable", getPackageName());
-                r.setDifficulty(iddiff);
+                int iddiff = object_JSON.getInt("difficulte");
+                String imageDiff = difficultImageConverter(iddiff);
+                int iStar = this.getResourceImage(imageDiff);
+                r.setImgIdStar(iStar);
 
                 // A completer
                 recipes.add(r);
