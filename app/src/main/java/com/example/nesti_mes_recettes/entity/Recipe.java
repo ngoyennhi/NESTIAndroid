@@ -7,6 +7,7 @@ public class Recipe {
     int imgId;
     int imgIdStar;
     int difficulty ;
+    int id_Cat;
     // Getter-Setter accesseurs-mutateurs
     public String getTitle() {
         return title;
@@ -46,6 +47,14 @@ public class Recipe {
 
     public void setImgIdStar(int imgIdStar) {
         this.imgIdStar = imgIdStar;
+    }
+
+    public int getId_Cat() {
+        return difficulty;
+    }
+
+    public void setId_Cat(int id_Cat) {
+        this.id_Cat = id_Cat;
     }
 
     public int getDifficulty() {

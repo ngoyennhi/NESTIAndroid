@@ -41,14 +41,15 @@ public class GlutenActivity extends AppCompatActivity {
         //l’url qui sera interrogée
         //Récupérez l’url du end-point qui fournis les recettes de la catégories “Sans gluten”
         // localhost
-      String url = "http://localhost:8888/nestiADMIN_CodeIgniter4/project_root_CodeIgniter4/public/index.php/api/category/sansgluten";
+        // //Important : Remplacer “XX.XXX.XX.XX” par ip mac
+       //String url = "http://XX.XXX.XX.XX:8888/nestiADMIN_CodeIgniter4/project_root_CodeIgniter4/public/index.php/api/category/sansgluten";
 
        // // server
        // //Remplacer les pointillés par le nom du projet Codeigniter.
        // //Remplacer les ... par votre chemin. (normalement c’est le nom du projet)
-       // //Important : Remplacer “192.168.0.000” par ip mac
-       // String url = "http://192.168.0.000/www/.../public/index.php/api/category/gluten"
-
+       // //Important : Remplacer “XX.XX.XX.XX” par ip mac
+    // String url = "https://hotongminh.needemand.com/nestiADMIN_CodeIgniter4/project_root_CodeIgniter4/public/index.php/api/category/sansgluten";
+      //String url = "https://hotongminh.needemand.com/nestiADMIN_CodeIgniter4/project_root_CodeIgniter4/public/index.php/api/recipes";
        final RequestQueue request_queue = Volley.newRequestQueue(getApplicationContext());
         JsonArrayRequest array_request = new JsonArrayRequest(
                 url,
@@ -57,10 +58,10 @@ public class GlutenActivity extends AppCompatActivity {
                          @Override
                          public void onResponse(JSONArray response){
                             //Traitement de la réponse
+                             Log.i("TAG", "onResponse: "+response);
                              ArrayList<Recipe> gluten_activity = readJSONRecipe(response.toString());
-                             Log.i("LogNesti", "tableau reçu:" + gluten_activity.size());
                              ListView list_view = (ListView) findViewById(R.id.sansGluten_listView);
-                             RecipeAdapter adapter = new RecipeAdapter(glutenActivity, R.layout.line_recipe, gluten_activity);
+                             RecipeAdapter adapter = new RecipeAdapter(getApplicationContext(), R.layout.line_recipe, gluten_activity);
                              list_view.setAdapter(adapter);
                             //Log.i("LogNesti",response.toString());
                          }
@@ -91,6 +92,7 @@ public class GlutenActivity extends AppCompatActivity {
 
             Log.i("LogNesti","Nombre denregistrements : " + tableau_JSON.length());
             //Parcours du tableau
+            Log.i("LogNesti", "readJSONRecipe: " + response);
             for(int i = 0;i<tableau_JSON.length(); i++){
                 JSONObject object_JSON = tableau_JSON.getJSONObject(i);
                 //Une fois les données JSON du fichier seazon.json récupérées dans le tableau JSONArray,
@@ -98,14 +100,15 @@ public class GlutenActivity extends AppCompatActivity {
                 // grâce à la classe JSONObject.
                 Recipe r = new Recipe();
                 // chaque lot d'info sera stocké dans un objet Recipe
+                r.setId_Cat(object_JSON.getInt("id_Cat"));
                 r.setCat(object_JSON.getString("cat"));
-                r.setTitle(object_JSON.getString("title"));
-                r.setAuthor(object_JSON.getString("author"));
+                r.setTitle(object_JSON.getString("nom_de_la_recette"));
+                r.setAuthor(object_JSON.getString("nom"));
 
-                int index = this.getResourceImage(object_JSON.getString("img"));
+                int index = this.getResourceImage(object_JSON.getString("nom_img"));
                 r.setImgId(index);
 
-                r.setDifficulty(object_JSON.getInt("diff"));
+                r.setDifficulty(object_JSON.getInt("difficulte"));
                 String imageDiff = difficultImageConverter(r.getDifficulty());
                 int iddiff = getResources().getIdentifier(imageDiff,"drawable", getPackageName());
                 r.setDifficulty(iddiff);
