@@ -40,17 +40,14 @@ public class GlutenActivity extends AppCompatActivity {
     private void requestApi(GlutenActivity glutenActivity){
         //l’url qui sera interrogée
         //Récupérez l’url du end-point qui fournis les recettes de la catégories “Sans gluten”
-        // localhost
-        // //Important : Remplacer “XX.XXX.XX.XX” par ip mac
-       //String url = "http://XX.XXX.XX.XX:8888/nestiADMIN_CodeIgniter4/project_root_CodeIgniter4/public/index.php/api/category/sansgluten";
+        //Important : Remplacer “XX.XXX.XX.XX” par ip mac connexion wifi
+        //Remplacer les pointillés par le nom du projet Codeigniter.
+        // Remplacer les ... par votre chemin. (normalement c’est le nom du projet)
+        //String url = "http://127.0.0.1/www/.../public/index.php/api/category/gluten
+        //String url = "http://XX.XXX.XX.XX:8888/nestiADMIN_CodeIgniter4/project_root_CodeIgniter4/public/index.php/api/category/sansgluten";
         
+       //String url = "https://hotongminh.needemand.com/nestiADMIN_CodeIgniter4/project_root_CodeIgniter4/public/index.php/api/category/sansgluten";
 
-       // // server
-       // //Remplacer les pointillés par le nom du projet Codeigniter.
-       // //Remplacer les ... par votre chemin. (normalement c’est le nom du projet)
-       // //Important : Remplacer “XX.XX.XX.XX” par ip mac
-    // String url = "https://hotongminh.needemand.com/nestiADMIN_CodeIgniter4/project_root_CodeIgniter4/public/index.php/api/category/sansgluten";
-      //String url = "https://hotongminh.needemand.com/nestiADMIN_CodeIgniter4/project_root_CodeIgniter4/public/index.php/api/recipes";
        final RequestQueue request_queue = Volley.newRequestQueue(getApplicationContext());
         JsonArrayRequest array_request = new JsonArrayRequest(
                 url,
