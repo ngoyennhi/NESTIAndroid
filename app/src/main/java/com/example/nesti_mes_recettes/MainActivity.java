@@ -10,6 +10,7 @@ import android.content.Intent;
 
 import android.os.Bundle;
 
+import android.util.Log;
 import android.view.MenuInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -44,7 +45,10 @@ public class MainActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(@NonNull MenuItem pItem){
     switch (pItem.getItemId()){
         case R.id.menu_search:
-            //Log.i("LogNesti","Menu : Recherche");
+            Log.i("LogNesti","Menu : Recherche");
+            //Vers l’activité Recherche ( SearchActivity )
+            Intent intent = new Intent(MainActivity.this,SearchActivity.class);
+            startActivity(intent);
             //Toast
             Toast.makeText(this, "Menu : Recherche", Toast.LENGTH_SHORT).show();
             break;
@@ -99,7 +103,8 @@ public class MainActivity extends AppCompatActivity {
          // Gestion du bouton btnEasy associé à la ressource ButtonMainEasy
         */
         // Utilisation d'un écouteur d'évenement pour récupérer l'intéraction avec le bouton
-        btnEasy.setOnClickListener(new View.OnClickListener() {
+        btnEasy.setOnClickListener(
+                new View.OnClickListener() {
             @Override
             public void onClick (View v){
                 //Demande confirmation avec action
@@ -220,5 +225,7 @@ public class MainActivity extends AppCompatActivity {
                 alertDialog.show();
             }
         });
+
+
     }
-}
+} //end claase

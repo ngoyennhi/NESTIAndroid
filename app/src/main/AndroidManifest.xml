@@ -26,6 +26,14 @@
             android:name=".EasyActivity"
             android:exported="false" />
         <activity
+            android:name=".ResultActivity"
+            android:exported="false">
+        </activity>
+        <activity
+            android:name=".SearchActivity"
+            android:exported="false">
+        </activity>
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>

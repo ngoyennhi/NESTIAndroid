@@ -21,4 +21,10 @@
     <string name="line_recipe_txtView_author">auteur</string>
     <string name="line_recipe_imgView_recipe">Image de recette</string>
     <string name="line_recipe_imgView_recipe_star">Image de recette star</string>
+    <string name="txt_placeholder_recipe_name">nom d’une recette</string>
+    <string name="txt_subtitle_search">Quel recette chercher vous?</string>
+    <string name="txt_title_search">Rechercher</string>
+    <string name="txt_btn_ok">Ok</string>
+    <string name="txt_title_result">Résultats de recherche</string>
+    <string name="txt_to_fill">Recette</string>
 </resources>
