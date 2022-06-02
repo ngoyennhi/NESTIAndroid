@@ -68,9 +68,25 @@ public class ResultActivity extends AppCompatActivity {
                         //Traitement de la réponse
                         Log.i("TAG", "onResponse: "+response);
                         ArrayList<Recipe> search_activity = readJSONRecipe(response.toString());
+                        Log.i("LogNesti", "onResponse: "+search_activity);
                         ListView list_view = (ListView) findViewById(R.id.result_listView);
                         RecipeAdapterSearch adapter = new RecipeAdapterSearch(getApplicationContext(), R.layout.line_recipe_search, search_activity);
                         list_view.setAdapter(adapter);
+
+                        // Evenemment sur chaque élément
+                        list_view.setOnItemClickListener(
+                                new AdapterView.OnItemClickListener() {
+                                    @Override
+                                    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                                        Toast toast = Toast.makeText(
+                                                getApplicationContext(),
+                                                "Rec:" + search_activity.get(position).getTitle(),
+                                                Toast.LENGTH_SHORT);
+                                        toast.show();
+                                    }
+                                }
+                        );
+
                         //Log.i("LogNesti",response.toString());
                         // Evenemment sur chaque bouton voir
                       //  final Button btnVoir =(Button)findViewById(R.id.search_btn_voir);
