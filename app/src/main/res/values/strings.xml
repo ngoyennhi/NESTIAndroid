@@ -27,4 +27,5 @@
     <string name="txt_btn_ok">Ok</string>
     <string name="txt_title_result">Résultats de recherche</string>
     <string name="txt_to_fill">Recette</string>
+    <string name="txt_btn_voir">Voir</string>
 </resources>

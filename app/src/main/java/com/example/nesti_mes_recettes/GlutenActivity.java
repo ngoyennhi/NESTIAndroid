@@ -46,6 +46,7 @@ public class GlutenActivity extends AppCompatActivity {
 
         //String url = "http://XX.XXX.XX.XX:8888/nestiADMIN_CodeIgniter4/project_root_CodeIgniter4/public/index.php/api/category/sansgluten";
 
+        String url = "http://XX.XXX.XX.XX:8888/nestiADMIN_CodeIgniter4/project_root_CodeIgniter4/public/index.php/api/category/sansgluten";
 
        //String url = "https://hotongminh.needemand.com/nestiADMIN_CodeIgniter4/project_root_CodeIgniter4/public/index.php/api/category/sansgluten";
 

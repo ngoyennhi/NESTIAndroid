@@ -8,7 +8,18 @@ public class Recipe {
     int imgIdStar;
     int difficulty ;
     int id_Cat;
+    int id;
+
     // Getter-Setter accesseurs-mutateurs
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int Id) {
+        this.id = Id;
+    }
+
     public String getTitle() {
         return title;
     }
