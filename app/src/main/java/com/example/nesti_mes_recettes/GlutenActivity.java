@@ -2,12 +2,10 @@ package com.example.nesti_mes_recettes;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.res.AssetManager;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.ListView;
 import android.widget.Toast;
-import android.view.View;
 
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
@@ -19,10 +17,7 @@ import com.example.nesti_mes_recettes.entity.Recipe;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
-import org.json.JSONException;
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
+
 import java.util.ArrayList;
 
 
@@ -34,6 +29,7 @@ public class GlutenActivity extends AppCompatActivity {
         setContentView(R.layout.activity_gluten);
 
         requestApi(this);
+
 
     }
 
@@ -60,7 +56,7 @@ public class GlutenActivity extends AppCompatActivity {
                             //Traitement de la réponse
                              Log.i("TAG", "onResponse: "+response);
                              ArrayList<Recipe> gluten_activity = readJSONRecipe(response.toString());
-                             ListView list_view = (ListView) findViewById(R.id.sansGluten_listView);
+                             ListView list_view = (ListView) findViewById(R.id.Tab_listView);
                              RecipeAdapter adapter = new RecipeAdapter(getApplicationContext(), R.layout.line_recipe, gluten_activity);
                              list_view.setAdapter(adapter);
                             //Log.i("LogNesti",response.toString());
@@ -78,6 +74,7 @@ public class GlutenActivity extends AppCompatActivity {
                 }
         );
         request_queue.add(array_request);
+        Log.i("TAG", "onResponse: "+ request_queue);
     }
     /*
    Ajouter une méthode qui, à partir d’une chaîne de caractère JSON,

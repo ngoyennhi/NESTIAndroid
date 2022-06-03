@@ -39,7 +39,7 @@ public class RecipeAdapter extends ArrayAdapter<Recipe> {
         Recipe one_recipe = getItem(position);
 
         //Assigner aux textView la valeur obtenues
-        TextView title = result.findViewById(R.id.lineRecipe_txtViewTitle);
+        TextView title = result.findViewById(R.id.lineRecipe_txtViewTitle_search);
         title.setText(one_recipe.getTitle());
 
         TextView author = result.findViewById(R.id.lineRecipe_txtViewAuthor);

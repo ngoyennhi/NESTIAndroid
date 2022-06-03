@@ -7,7 +7,7 @@
     android:layout_height="150dp">
 
     <TextView
-        android:id="@+id/lineRecipe_txtViewTitle"
+        android:id="@+id/lineRecipe_txtViewTitle_search"
         android:layout_width="254dp"
         android:layout_height="52dp"
         android:layout_marginStart="24dp"
@@ -24,7 +24,7 @@
         android:layout_marginStart="13dp"
         android:layout_marginTop="50dp"
         android:text="@string/txt_btn_voir"
-        app:layout_constraintStart_toEndOf="@+id/lineRecipe_txtViewTitle"
+        app:layout_constraintStart_toEndOf="@+id/lineRecipe_txtViewTitle_search"
         app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

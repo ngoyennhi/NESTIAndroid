@@ -1,5 +1,6 @@
 package com.example.nesti_mes_recettes;
 
+import android.annotation.SuppressLint;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
@@ -8,6 +9,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -66,48 +68,43 @@ public class ResultActivity extends AppCompatActivity {
                     @Override
                     public void onResponse(JSONArray response){
                         //Traitement de la réponse
-                        Log.i("TAG", "onResponse: "+response);
+                        //Log.i("TAG", "onResponse: "+response);
                         ArrayList<Recipe> search_activity = readJSONRecipe(response.toString());
-                        Log.i("LogNesti", "onResponse: "+search_activity);
                         ListView list_view = (ListView) findViewById(R.id.result_listView);
                         RecipeAdapterSearch adapter = new RecipeAdapterSearch(getApplicationContext(), R.layout.line_recipe_search, search_activity);
                         list_view.setAdapter(adapter);
+
+                        //Log.i("LogNesti",response.toString());
+                        //Button btnvoir = (Button)findViewById(R.id.search_btn_voir);
 
                         // Evenemment sur chaque élément
                         list_view.setOnItemClickListener(
                                 new AdapterView.OnItemClickListener() {
                                     @Override
                                     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                                        // Récupération de la valeur saisie
+                                        // comment get le nom de cette recette pour stocker dans le String term
+                                       // String term = "";
                                         Toast toast = Toast.makeText(
                                                 getApplicationContext(),
-                                                "Rec:" + search_activity.get(position).getTitle(),
+                                                "Toto"+  term ,
                                                 Toast.LENGTH_SHORT);
                                         toast.show();
+                                        Intent intent = new Intent(ResultActivity.this, TabRecipeActivity.class);
+                                        // Ajout de l’extra “term”
+                                       intent.putExtra("nom_de_la_recette", term );
+                                        //L'activité est lancée
+                                     startActivity(intent);
                                     }
                                 }
                         );
-
-                        //Log.i("LogNesti",response.toString());
-                        // Evenemment sur chaque bouton voir
-                      //  final Button btnVoir =(Button)findViewById(R.id.search_btn_voir);
-                       // btnVoir.setOnClickListener(new View.OnClickListener() {
-                         //   @Override
-                         //  public void onClick(View v)
-                         // {
-                             //  // Displaying simple Toast message
-                            //  Toast.makeText(getApplicationContext(),
-                                     //    "TOTO",
-                                     //    Toast.LENGTH_LONG)
-                                   //.show();
-                          //  }
-                     // });
-
                     }
                 },
                 //Interface de rappel pour fournir des réponses d'erreur.
                 new Response.ErrorListener(){
                     @Override
                     public void onErrorResponse(VolleyError error){
+
                         // En cas d'eurrer
                         Toast.makeText(getApplicationContext(),"Une erreur est survenue sur l'interrogation de l'API",
                                 Toast.LENGTH_SHORT).show();
@@ -128,9 +125,9 @@ public class ResultActivity extends AppCompatActivity {
             //classe JSON Array pour passer les données du fichier JSON
             //note: il est impératif de stocker le fichier season.json dans ASSETS
 
-            Log.i("LogNesti","Nombre denregistrements : " + tableau_JSON.length());
+            //Log.i("LogNesti","Nombre denregistrements : " + tableau_JSON.length());
             //Parcours du tableau
-            Log.i("LogNesti", "readJSONRecipe: " + response);
+            //Log.i("LogNesti", "readJSONRecipe: " + response);
             for(int i = 0;i<tableau_JSON.length(); i++){
                 JSONObject object_JSON = tableau_JSON.getJSONObject(i);
                 //Une fois les données JSON du fichier seazon.json récupérées dans le tableau JSONArray,
