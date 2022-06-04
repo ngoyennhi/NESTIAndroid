@@ -9,12 +9,10 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 
 import com.example.nesti_mes_recettes.R;
-import com.example.nesti_mes_recettes.ResultActivity;
 import com.example.nesti_mes_recettes.TabRecipeActivity;
 import com.example.nesti_mes_recettes.entity.Recipe;
 

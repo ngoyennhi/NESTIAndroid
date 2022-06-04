@@ -9,8 +9,25 @@ public class Recipe {
     int difficulty ;
     int id_Cat;
     int id;
+    int temps;
+    int nombrePersonne;
 
     // Getter-Setter accesseurs-mutateurs
+    public int getTemps() {
+        return temps;
+    }
+
+    public void setTemps(int temps) {
+        this.temps = temps;
+    }
+
+    public int getNombrePersonne() {
+        return nombrePersonne;
+    }
+
+    public void setNombrePersonne(int nombrePersonne) {
+        this.nombrePersonne = nombrePersonne;
+    }
 
     public int getId() {
         return id;

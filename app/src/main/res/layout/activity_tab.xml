@@ -21,13 +21,13 @@
         app:layout_constraintVertical_bias="0.023" />
 
     <ListView
-        android:id="@+id/Tab_listview"
+        android:id="@+id/Tab_listview_detail"
         android:layout_width="349dp"
         android:layout_height="540dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/main_txtViewEasy"
-        app:layout_constraintVertical_bias="0.843" />
+        app:layout_constraintVertical_bias="0.8" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

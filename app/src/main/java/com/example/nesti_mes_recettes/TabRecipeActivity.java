@@ -14,9 +14,11 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.nesti_mes_recettes.adapter.RecipeAdapter;
+import com.example.nesti_mes_recettes.adapter.RecipeAdapterDetail;
 import com.example.nesti_mes_recettes.entity.Recipe;
 
 import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
@@ -25,7 +27,7 @@ public class TabRecipeActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.line_recipe);
+        setContentView(R.layout.line_recipe_detail);
         // Réception des données
         //Bundle extras = getIntent().getExtras();
         // on extrait chaque données de extras
@@ -33,9 +35,11 @@ public class TabRecipeActivity extends AppCompatActivity {
         //int id = extras.getInt("id");
         int id = intent.getIntExtra("id",0);
         //String nom_de_la_recette = extras.getString("id");
-        Log.i("LogNesti","onResponse: "+ id );
+       // Log.i("LogNesti","onResponse: "+ id );
+
+
         // continue le code avec les informations pour afficher continue
-        requestApi(this, id);
+         //requestApi(this, id);
     }
 
     private void requestApi(TabRecipeActivity TabRecipeActivity,int id){
@@ -59,12 +63,14 @@ public class TabRecipeActivity extends AppCompatActivity {
                     @Override
                     public void onResponse(JSONArray response){
                         //Traitement de la réponse
-                        Log.i("TAG", "onResponse: "+response);
-                        ArrayList<Recipe> Tab_activity = readJSONRecipe(response.toString());
-                        ListView list_view = (ListView) findViewById(R.id.Tab_listView);
-                        RecipeAdapter adapter = new RecipeAdapter(getApplicationContext(), R.layout.line_recipe, Tab_activity);
+                      // Log.i("TAG", "onResponse: "+response);
+
+                        ArrayList<Recipe> recipe_detail = readJSONRecipe(response.toString());
+                        Log.i("TAG", "onResponse: "+recipe_detail);
+                        ListView list_view = (ListView) findViewById(R.id.Tab_listview_detail);
+                        RecipeAdapter adapter = new RecipeAdapter(getApplicationContext(), R.layout.line_recipe_detail, recipe_detail);
                         list_view.setAdapter(adapter);
-                        //Log.i("LogNesti",response.toString());
+
                     }
                 },
                 //Interface de rappel pour fournir des réponses d'erreur.
@@ -79,7 +85,7 @@ public class TabRecipeActivity extends AppCompatActivity {
                 }
         );
         request_queue.add(array_request);
-        Log.i("TAG", "onResponse: "+ request_queue);
+        //Log.i("TAG", "onResponse: "+ request_queue);
     }
     /*
    Ajouter une méthode qui, à partir d’une chaîne de caractère JSON,
@@ -92,9 +98,9 @@ public class TabRecipeActivity extends AppCompatActivity {
             //classe JSON Array pour passer les données du fichier JSON
             //note: il est impératif de stocker le fichier season.json dans ASSETS
 
-            Log.i("LogNesti","Nombre denregistrements : " + tableau_JSON.length());
+            //Log.i("LogNesti","Nombre denregistrements : " + tableau_JSON.length());
             //Parcours du tableau
-            Log.i("LogNesti", "readJSONRecipe: " + response);
+            //Log.i("LogNesti", "readJSONRecipe: " + response);
             for(int i = 0;i<tableau_JSON.length(); i++){
                 JSONObject object_JSON = tableau_JSON.getJSONObject(i);
                 //Une fois les données JSON du fichier seazon.json récupérées dans le tableau JSONArray,
@@ -102,14 +108,14 @@ public class TabRecipeActivity extends AppCompatActivity {
                 // grâce à la classe JSONObject.
                 Recipe r = new Recipe();
                 // chaque lot d'info sera stocké dans un objet Recipe
-                r.setId_Cat(object_JSON.getInt("id_Cat"));
-                r.setCat(object_JSON.getString("cat"));
+                r.setId(object_JSON.getInt("Id"));
                 r.setTitle(object_JSON.getString("nom_de_la_recette"));
                 r.setAuthor(object_JSON.getString("nom"));
-
+                r.setCat(object_JSON.getString("cat"));
+                r.setTemps(object_JSON.getInt("temps"));
+                r.setNombrePersonne(object_JSON.getInt("nombre_de_personne"));
                 int index = this.getResourceImage(object_JSON.getString("nom_img"));
                 r.setImgId(index);
-
                 int iddiff = object_JSON.getInt("difficulte");
                 String imageDiff = difficultImageConverter(iddiff);
                 int iStar = this.getResourceImage(imageDiff);
@@ -131,12 +137,12 @@ public class TabRecipeActivity extends AppCompatActivity {
      @param nameImage
     @return
     */
-    private int getResourceImage(String nameImage){
+    public int getResourceImage(String nameImage){
         String path = getPackageName()+ ":drawable/" + nameImage;
         return getResources().getIdentifier(path,null,null);
     }
 
-    private String difficultImageConverter(int diff) {
+   public String difficultImageConverter(int diff) {
         String img_name = new String();
         if (diff == 1) {
             img_name = "star_1";

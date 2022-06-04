@@ -47,6 +47,8 @@ public class ResultActivity extends AppCompatActivity {
 
         requestApi(this,term);
 
+
+
     }
 
     private void requestApi(ResultActivity resultActivity, String term){
@@ -92,9 +94,9 @@ public class ResultActivity extends AppCompatActivity {
                                         toast.show();
                                         Intent intent = new Intent(ResultActivity.this, TabRecipeActivity.class);
                                         // Ajout de l’extra “term”
-                                       intent.putExtra("nom_de_la_recette", term );
+                                        intent.putExtra("Id", term );
                                         //L'activité est lancée
-                                     startActivity(intent);
+                                         startActivity(intent);
                                     }
                                 }
                         );

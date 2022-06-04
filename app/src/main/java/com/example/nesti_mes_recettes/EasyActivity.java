@@ -20,7 +20,7 @@ public class EasyActivity extends AppCompatActivity {
         // List View
          */
         // on attrape le composant pour récuper l'élement Listview du layout par son identifiant
-        ListView listView = findViewById(R.id.Tab_listview);
+        ListView listView = findViewById(R.id.Tab_listview_detail);
         // on crée un adaptateur pour faire le lien entre les données et la listView
         // une simple liste d'éléments et alimentée par le tableau de recettes this.eastRecipes
         // deuxieme param détermine l'affichage de chaque élément de la liste
