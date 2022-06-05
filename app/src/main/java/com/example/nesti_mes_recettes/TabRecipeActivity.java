@@ -37,9 +37,8 @@ public class TabRecipeActivity extends AppCompatActivity {
         //String nom_de_la_recette = extras.getString("id");
        // Log.i("LogNesti","onResponse: "+ id );
 
-
         // continue le code avec les informations pour afficher continue
-         //requestApi(this, id);
+         requestApi(this, id);
     }
 
     private void requestApi(TabRecipeActivity TabRecipeActivity,int id){

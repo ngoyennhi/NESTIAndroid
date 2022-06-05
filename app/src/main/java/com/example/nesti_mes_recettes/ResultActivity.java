@@ -46,9 +46,6 @@ public class ResultActivity extends AppCompatActivity {
         text_view.setText(term);
 
         requestApi(this,term);
-
-
-
     }
 
     private void requestApi(ResultActivity resultActivity, String term){

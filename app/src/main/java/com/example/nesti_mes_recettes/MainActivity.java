@@ -61,6 +61,7 @@ public class MainActivity extends AppCompatActivity {
             //Log.i("LogNesti","Menu : Presentation");
             //Toast
             Toast.makeText(this, "Menu : Présentation", Toast.LENGTH_SHORT).show();
+
             break;
         case R.id.menu_contact:
             //Log.i("LogNesti","Menu : Contact");
@@ -71,6 +72,9 @@ public class MainActivity extends AppCompatActivity {
             //Log.i("LogNesti","Menu : Project");
             //Toast
             Toast.makeText(this, "Menu : Project", Toast.LENGTH_SHORT).show();
+            //Vers l’activité Recherche ( SearchActivity )
+            Intent intentPresent = new Intent(MainActivity.this,PresentationActivity.class);
+            startActivity(intentPresent);
             break;
         case R.id.menu_team:
             //Log.i("LogNesti","Menu : Team");
